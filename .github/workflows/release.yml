@@ -18,6 +18,8 @@ jobs:
             os: windows
           - target: x86_64-apple-darwin
             os: macos
+          - target: aarch64-apple-darwin
+            os: macos-arm
 
     steps:
     - uses: actions/checkout@v2
@@ -29,12 +31,11 @@ jobs:
         target: ${{ matrix.target }}
         override: true
 
+    - name: Install Cross
+      run: cargo install cross --force
+
     - name: Build
-      uses: actions-rs/cargo@v1
-      with:
-        use-cross: true
-        command: build
-        args: --release --target ${{ matrix.target }}
+      run: cross build --release --target ${{ matrix.target }}
 
     - name: Package
       shell: bash
@@ -53,8 +54,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          minos-codex-${{ matrix.os }}.tar.gz
-          minos-codex-${{ matrix.os }}.sha256
+          target/${{ matrix.target }}/release/minos-codex-${{ matrix.os }}.tar.gz
+          target/${{ matrix.target }}/release/minos-codex-${{ matrix.os }}.sha256
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
