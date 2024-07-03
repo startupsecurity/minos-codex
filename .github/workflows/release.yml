@@ -34,9 +34,6 @@ jobs:
     - name: Build
       run: cargo build --release --target ${{ matrix.target }}
 
-    - name: List Build Directory
-      run: ls -alh target/${{ matrix.target }}/release
-
     - name: Package
       shell: bash
       run: |
