@@ -41,6 +41,9 @@ jobs:
         rustup target add ${{ matrix.target }}
         cargo build --release --target ${{ matrix.target }}
 
+    - name: List Target Directory
+      run: ls -la target
+
     - name: Package
       shell: bash
       run: |
