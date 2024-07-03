@@ -6,61 +6,55 @@ on:
       - 'v*'
 
 jobs:
-  create_release:
-    name: Create Release
+  build_and_release:
+    name: Build and Release
     runs-on: ubuntu-latest
-    outputs:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
-    steps:
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-  build_and_upload:
-    name: Build and Upload
-    needs: create_release
     strategy:
       matrix:
         include:
-          - os: ubuntu-latest
-            target: x86_64-unknown-linux-gnu
-            artifact_name: minos-codex
-            asset_name: minos-codex-linux-amd64
-          - os: ubuntu-latest
-            target: x86_64-pc-windows-gnu
-            artifact_name: minos-codex.exe
-            asset_name: minos-codex-windows-amd64.exe
-          - os: macos-latest
-            target: x86_64-apple-darwin
-            artifact_name: minos-codex
-            asset_name: minos-codex-macos-amd64
+          - target: x86_64-unknown-linux-gnu
+            os: linux
+          - target: x86_64-pc-windows-gnu
+            os: windows
+          - target: x86_64-apple-darwin
+            os: macos
 
-    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          target: ${{ matrix.target }}
-          override: true
-      - uses: actions-rs/cargo@v1
-        with:
-          use-cross: true
-          command: build
-          args: --release --target ${{ matrix.target }}
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.create_release.outputs.upload_url }}
-          asset_path: ./target/${{ matrix.target }}/release/${{ matrix.artifact_name }}
-          asset_name: ${{ matrix.asset_name }}
-          asset_content_type: application/octet-stream
+    - uses: actions/checkout@v2
+
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        target: ${{ matrix.target }}
+        override: true
+
+    - name: Build
+      uses: actions-rs/cargo@v1
+      with:
+        use-cross: true
+        command: build
+        args: --release --target ${{ matrix.target }}
+
+    - name: Package
+      shell: bash
+      run: |
+        cd target/${{ matrix.target }}/release
+        tar czvf ../../../minos-codex-${{ matrix.os }}.tar.gz minos-codex*
+        cd -
+
+    - name: Generate SHA256
+      run: |
+        cd target/${{ matrix.target }}/release
+        sha256sum minos-codex* > ../../../minos-codex-${{ matrix.os }}.sha256
+        cd -
+
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          minos-codex-${{ matrix.os }}.tar.gz
+          minos-codex-${{ matrix.os }}.sha256
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

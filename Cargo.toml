@@ -1,7 +1,11 @@
 [package]
 name = "minos-codex"
-version = "0.1.0"
-edition = "2021"
+version = "0.0.1"
+edition = "2024"
+description = "Minos Codex is a tool for detecting and identifying secrets in a string"
+
+[package.metadata.cross]
+xargo = false
 
 [dependencies]
 clap = { version = "4.5.8", features = ["derive"] }
