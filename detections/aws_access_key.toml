@@ -1,0 +1,8 @@
+[secret_type]
+name = "aws_access_key"
+regex = "AKIA[0-9A-Z]{16}"
+description = "Detects AWS access key IDs"
+
+examples = ["AKIAIOSFODNN7EXAMPLE", "AKIAIOSFODNN7EXAMP1E"]
+
+false_positives = ["AKIA1234567890123", "AKIASHORTKEY"]

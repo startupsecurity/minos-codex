@@ -1,0 +1,8 @@
+[secret_type]
+name = "username"
+regex = "[a-zA-Z0-9._%+-]{3,16}"
+description = "Detects usernames"
+
+examples = ["user123", "john.doe"]
+
+false_positives = ["ab"]

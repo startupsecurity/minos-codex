@@ -1,0 +1,10 @@
+[package]
+name = "minos-codex"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+regex = "1.10.5"
+serde = { version = "1.0.203", features = ["derive"] }
+thiserror = "1.0.61"
+toml = "0.8.14"

@@ -1,0 +1,11 @@
+[secret_type]
+name = "uuid"
+regex = "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+description = "Detects universally unique identifiers (UUIDs)"
+
+examples = [
+    "123e4567-e89b-12d3-a456-426614174000",
+    "e2d9b4e2-5b68-11eb-ae93-0242ac130002",
+]
+
+false_positives = ["a-1234-1234-1234-1234567890123"]

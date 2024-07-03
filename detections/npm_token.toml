@@ -1,0 +1,11 @@
+[secret_type]
+name = "npm_token"
+regex = "npm_[a-zA-Z0-9@]+"
+description = "Detects npm access tokens"
+
+examples = [
+    "npm_abcdefghijklmnopqrstuvwxyz1234567890abcd",
+    "npm_1234567890abcdefghijklmnopqrstuvwxyzabcd",
+]
+
+false_positives = ["npm2345"]

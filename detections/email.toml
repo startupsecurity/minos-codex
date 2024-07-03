@@ -1,0 +1,8 @@
+[secret_type]
+name = "email"
+regex = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
+description = "Detects email addresses"
+
+examples = ["user@example.com", "john.doe123@subdomain.example.co.uk"]
+
+false_positives = ["not-an-email@", "@invalid-email.com"]
