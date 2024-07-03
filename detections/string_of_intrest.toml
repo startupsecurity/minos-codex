@@ -1,0 +1,8 @@
+[secret_type]
+name = "string_of_intrest"
+regex = "(?:[a-zA-Z0-9._%+-]*[0-9][a-zA-Z0-9._%+-]*)|(?:[a-zA-Z0-9._%+-]*[._%+-][a-zA-Z0-9._%+-]+)"
+description = "Detects usernames, requiring at least one number or special character"
+
+examples = ["user123", "john.doe"]
+
+false_positives = ["ab", "hamburger"]
