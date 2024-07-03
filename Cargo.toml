@@ -1,7 +1,7 @@
 [package]
 name = "minos-codex"
 version = "0.0.1"
-edition = "2024"
+edition = "2021"
 description = "Minos Codex is a tool for detecting and identifying secrets in a string"
 
 [package.metadata.cross]
