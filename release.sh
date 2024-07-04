@@ -32,11 +32,9 @@ bump_major() {
     echo "${parts[0]}.${parts[1]}.${parts[2]}"
 }
 
-# Get the current version
 current_version=$(get_version)
 echo "Current version: $current_version"
 
-# Check the argument for which version to bump
 if [ "$1" == "bump_patch" ]; then
     new_version=$(bump_patch "$current_version")
 elif [ "$1" == "bump_minor" ]; then
@@ -50,17 +48,15 @@ fi
 
 echo "New version: $new_version"
 
-# Update the version in Cargo.toml
-sed -i'' -E "s/^version = \"$current_version\"/version = \"$new_version\"/" Cargo.toml
+sed -i'' -E "s/^version = \"$current_version\"/version = \"$new_version\"/" Cargo.toml || sed -i -E "s/^version = \"$current_version\"/version = \"$new_version\"/" Cargo.toml
 
-# Commit the changes to Cargo.toml
 git add Cargo.toml
+git add Cargo.lock
+
 git commit -m "Bump version to $new_version"
 
-# Tag the new version
 git tag "v$new_version"
 
-# Push the changes and the tags
 git push origin main
 git push origin "v$new_version"
 
