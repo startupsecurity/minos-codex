@@ -48,8 +48,16 @@ fi
 
 echo "New version: $new_version"
 
-sed -i'' -E "s/^version = \"$current_version\"/version = \"$new_version\"/" Cargo.toml || sed -i -E "s/^version = \"$current_version\"/version = \"$new_version\"/" Cargo.toml
+# Update the version in Cargo.toml
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS
+    sed -i '' -E "s/^version = \"$current_version\"/version = \"$new_version\"/" Cargo.toml
+else
+    # GNU/Linux
+    sed -i -E "s/^version = \"$current_version\"/version = \"$new_version\"/" Cargo.toml
+fi
 
+cargo update
 git add Cargo.toml
 git add Cargo.lock
 
