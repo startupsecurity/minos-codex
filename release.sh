@@ -51,7 +51,7 @@ fi
 echo "New version: $new_version"
 
 # Update the version in Cargo.toml
-sed -i -E "s/^version = \"$current_version\"/version = \"$new_version\"/" Cargo.toml
+sed -i'' -E "s/^version = \"$current_version\"/version = \"$new_version\"/" Cargo.toml
 
 # Commit the changes to Cargo.toml
 git add Cargo.toml
