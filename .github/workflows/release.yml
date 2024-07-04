@@ -31,6 +31,9 @@ jobs:
         target: ${{ matrix.target }}
         override: true
 
+    - name: Publish to Cargo
+      run: cargo publish --token ${{ secrets.CARGO_REGISTRY_TOKEN }}
+
     - name: Build
       run: cargo build --release --target ${{ matrix.target }}
 
@@ -52,8 +55,6 @@ jobs:
         fi
         cd -
 
-    - name: Publish to Cargo
-      run: cargo publish --token ${{ secrets.CARGO_REGISTRY_TOKEN }}
 
     - name: Release
       uses: softprops/action-gh-release@v1
