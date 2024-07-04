@@ -1,6 +1,6 @@
 [package]
 name = "minos-codex"
-version = "0.0.18"
+version = "0.0.19"
 edition = "2021"
 authors = ["Ryan LaBouve <your.email@example.com>"]
 license = "GPL-3.0-only"
