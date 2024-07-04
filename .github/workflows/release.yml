@@ -33,6 +33,8 @@ jobs:
 
     - name: Publish to Cargo
       run: cargo publish --token ${{ secrets.CARGO_REGISTRY_TOKEN }}
+      env:
+        CARGO_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
 
     - name: Build
       run: cargo build --release --target ${{ matrix.target }}
@@ -64,4 +66,4 @@ jobs:
           target/${{ matrix.target }}/release/minos-codex-${{ matrix.os }}.sha256
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CARGO_TOKEN: ${{ secrets.CARGO_TOKEN }}
+        CARGO_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
