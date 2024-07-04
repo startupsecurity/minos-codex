@@ -13,6 +13,7 @@ xargo = false
 [dependencies]
 clap = { version = "4.5.8", features = ["derive"] }
 regex = "1.10.5"
+rust-embed = "8.4.0"
 serde = { version = "1.0.203", features = ["derive"] }
 thiserror = "1.0.61"
 toml = "0.8.14"

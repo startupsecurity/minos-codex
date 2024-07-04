@@ -8,7 +8,7 @@ fn main() {
 }
 
 fn run() -> Result<(), MinosCodexError> {
-    let mut scanner = create_scanner("detections")?;
+    let mut scanner = create_scanner()?;
 
     let input = "My email is example@email.com and my AWS access key is AKIAIOSFODNN7EXAMPLE";
 

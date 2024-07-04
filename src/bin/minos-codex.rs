@@ -1,5 +1,6 @@
 use clap::Parser;
 use minos_codex::{create_scanner, MinosCodexError};
+use rust_embed::RustEmbed;
 
 #[derive(Parser)]
 #[clap(
@@ -13,10 +14,13 @@ struct Opts {
     input: String,
 }
 
+#[derive(RustEmbed)]
+#[folder = "detections/"]
+struct Assets;
+
 fn main() -> Result<(), MinosCodexError> {
     let opts: Opts = Opts::parse();
-
-    let mut scanner = create_scanner("detections")?;
+    let mut scanner = create_scanner()?;
 
     let found_secrets = scanner.scan(&opts.input)?;
 

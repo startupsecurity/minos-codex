@@ -24,11 +24,10 @@ pub enum MinosCodexError {
     ValidationError(String),
 }
 
-pub fn create_scanner(config_dir: &str) -> Result<Scanner, MinosCodexError> {
-    let config = Config::load_from_directory(config_dir)?;
+pub fn create_scanner() -> Result<Scanner, MinosCodexError> {
+    let config = Config::load_from_embedded()?;
     Ok(Scanner::new(config))
 }
-
 impl From<extern_regex::Error> for MinosCodexError {
     fn from(err: extern_regex::Error) -> Self {
         match err {
