@@ -38,7 +38,13 @@ jobs:
       shell: bash
       run: |
         cd target/${{ matrix.target }}/release
-        tar czvf ../../../minos-codex-${{ matrix.target }}-${{ matrix.os }}.tar.gz minos-codex*
+        echo "Current directory:"
+        pwd
+        echo "Files available for packaging:"
+        ls -l
+        tar czvf ../../../minos-codex-${{ matrix.target }}-${{ matrix.os }}.tar.gz minos-codex* || echo "Tar command failed with exit code $?"
+        echo "Check if tar.gz was created:"
+        ls -l ../../../
         cd -
 
     - name: List Packaged Files
@@ -66,4 +72,3 @@ jobs:
           target/${{ matrix.target }}/release/minos-codex-${{ matrix.target }}-${{ matrix.os }}.sha256
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
