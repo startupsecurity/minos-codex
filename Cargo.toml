@@ -5,7 +5,7 @@ edition = "2021"
 authors = ["Ryan LaBouve <your.email@example.com>"]
 license = "GPL-3.0-only"
 description = "Minos Codex is a tool for detecting and identifying secrets in a string"
-readme = "README.md"
+readme = "readme.md"
 
 [package.metadata.cross]
 xargo = false
