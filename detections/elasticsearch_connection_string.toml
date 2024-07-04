@@ -1,0 +1,11 @@
+[secret_type]
+name = "elasticsearch_connection_string"
+regex = "https?://[a-zA-Z0-9\\-\\.]+:[a-zA-Z0-9\\-\\.]+@[a-zA-Z0-9\\-\\.]+:\\d{2,5}/[a-zA-Z0-9_\\-]+"
+description = "Detects Elasticsearch connection strings"
+
+examples = [
+    "http://username:password@localhost:9200/indexname",
+    "https://user:pass@es-domain:443/index",
+]
+
+false_positives = []

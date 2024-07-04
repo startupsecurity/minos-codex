@@ -1,0 +1,6 @@
+[secret_type]
+name = "bank_swift"
+regex = "^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$"
+description = "Detects bank SWIFT/BIC codes"
+examples = ["DEUTDEFF", "NEDSZAJJXXX", "DABADKKK", "UNCRIT2B912"]
+false_positives = ["SWIFT123", "BICCODE12XXX"]

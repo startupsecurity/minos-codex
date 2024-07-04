@@ -1,0 +1,11 @@
+[secret_type]
+name = "stripe_api_key"
+regex = "sk_live_[0-9a-zA-Z]{24}"
+description = "Detects Stripe API keys"
+
+examples = [
+    "sk_live_4eC39HqLyjWDarjtT1zdp7dc",
+    "sk_live_BQokikJOvBiI2HlWgH4olfQ2",
+]
+
+false_positives = []

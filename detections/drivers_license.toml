@@ -1,0 +1,8 @@
+[secret_type]
+name = "drivers_license"
+regex = "[A-Z]{1,2}[0-9]{6,9}"
+description = "Detects driver's license numbers"
+
+examples = ["S1234567", "AB123456789"]
+
+false_positives = []

@@ -1,0 +1,11 @@
+[secret_type]
+name = "mailchimp_api_key"
+regex = "[0-9a-fA-F]{32}-us[0-9]{1,2}"
+description = "Detects MailChimp API keys"
+
+examples = [
+    "4e9a2bac28eb6251d2b0c7575d4e1e12-us3",
+    "8b74213b1f342bf3e78010c8d7a4a8b5-us2",
+]
+
+false_positives = []

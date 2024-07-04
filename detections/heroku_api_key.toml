@@ -1,0 +1,11 @@
+[secret_type]
+name = "heroku_api_key"
+regex = "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+description = "Detects Heroku API keys"
+
+examples = [
+    "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "e2d9b4e2-5b68-11eb-ae93-0242ac130002",
+]
+
+false_positives = []

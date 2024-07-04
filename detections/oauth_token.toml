@@ -1,0 +1,11 @@
+[secret_type]
+name = "oauth_token"
+regex = "[A-Za-z0-9]{32}"
+description = "Detects OAuth tokens"
+
+examples = [
+    "a3b4c6d7e8f9g0h1j2k3l4m5n6o7p8q9",
+    "1234567890abcdef1234567890abcdef",
+]
+
+false_positives = []

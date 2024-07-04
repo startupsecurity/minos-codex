@@ -1,0 +1,8 @@
+[secret_type]
+name = "vin"
+regex = "[A-HJ-NPR-Z0-9]{17}"
+description = "Detects vehicle identification numbers (VINs)"
+
+examples = ["1HGCM82633A004352", "JH4KA7660MC000000"]
+
+false_positives = []

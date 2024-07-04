@@ -1,0 +1,11 @@
+[secret_type]
+name = "bitcoin_wallet"
+regex = "([13][a-km-zA-HJ-NP-Z1-9]{25,34})"
+description = "Detects Bitcoin wallet addresses"
+
+examples = [
+    "1BoatSLRHtKNngkdXEeobR76b53LETtpyT",
+    "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy",
+]
+
+false_positives = []

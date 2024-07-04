@@ -1,0 +1,8 @@
+[secret_type]
+name = "twitter_api_key"
+regex = "[1-9a-zA-Z]{25}"
+description = "Detects Twitter API keys"
+
+examples = ["XvZ2N1vaW5zI1NDbGJWdQ3R1bWV0cg", "M1dDMzZPcEdHYnRUU2xGVVBR2dZR2h"]
+
+false_positives = []

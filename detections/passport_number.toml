@@ -1,0 +1,8 @@
+[secret_type]
+name = "passport_number"
+regex = "[A-Z0-9]{2}-[0-9]{7}"
+description = "Detects passport numbers"
+
+examples = ["AB-1234567", "CD-8901234"]
+
+false_positives = []

@@ -1,0 +1,11 @@
+[secret_type]
+name = "eth_wallet"
+regex = "0x[a-fA-F0-9]{40}"
+description = "Detects Ethereum wallet addresses"
+
+examples = [
+    "0x27b1fdb04752bbc536007a920d24acb045561c26",
+    "0x4e83362442b8d1bec281594cea3050c8eb01311c",
+]
+
+false_positives = ["1x1234567890123456789012345678901234567890"]

@@ -1,0 +1,13 @@
+[secret_type]
+regex = "(jdbc:sqlserver|mysql|postgresql|oracle):\\/\\/[a-zA-Z0-9_\\-\\.]+:[a-zA-Z0-9_\\-\\.]*@[a-zA-Z0-9_\\-\\.]+:\\d{2,5}\\/[a-zA-Z0-9_\\-]+"
+name = "db_connection_string"
+description = "Detects database connection strings"
+
+examples = [
+    "jdbc:sqlserver://username:password@localhost:1433/databaseName",
+    "mysql://user:pass@db-host:3306/dbname",
+    "postgresql://admin:secret@db-server:5432/db_instance",
+    "oracle://dbuser:dbpass@oraclehost:1521/orcl",
+]
+
+false_positives = []

@@ -38,7 +38,10 @@ impl SecretType {
         // 2. Ensure that all examples match the regex
         for example in &self.examples {
             if !re.is_match(example) {
-                return Err(format!("Example '{}' does not match the regex", example));
+                return Err(format!(
+                    "Example '{}' does not match the regex '{}' for secret type '{}'",
+                    example, self.regex, self.name
+                ));
             }
         }
 
@@ -46,8 +49,10 @@ impl SecretType {
         for false_positive in &self.false_positives {
             if re.is_match(false_positive) {
                 return Err(format!(
-                    "False positive '{}' matches the regex",
-                    false_positive
+                    "False positive '{}' matches the regex '{}' for secret type '{}'",
+                    false_positive,
+                    self.regex,
+                    self.name // End of  Selection
                 ));
             }
         }

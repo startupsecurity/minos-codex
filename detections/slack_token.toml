@@ -1,0 +1,11 @@
+[secret_type]
+name = "slack_token"
+regex = "[xoxb|xoxp|xoxa|xoxr]-[0-9]{10,12}-[0-9]{10,12}-[0-9a-zA-Z]{24,32}"
+description = "Detects Slack API tokens"
+
+examples = [
+    "xoxb-123456789012-123456789012-3aBcDeFgHiJkLmNoPqRsTuVwXyZ012345678",
+    "xoxp-210987654321-109876543210-a1B2c3D4e5F6g7H8i9J0kLmN1oP2qR3sT4uV5",
+]
+
+false_positives = []

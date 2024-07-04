@@ -1,0 +1,8 @@
+[secret_type]
+name = "paypal_api_key"
+regex = "[A-Za-z0-9]{20}"
+description = "Detects PayPal API keys"
+
+examples = ["A21AAHKXU8B9J0KU2CDA", "A21AAHJASD2GJ0KU3BDB"]
+
+false_positives = []

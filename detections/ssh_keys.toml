@@ -1,0 +1,11 @@
+[secret_type]
+name = "ssh_key"
+regex = "ssh-rsa [A-Za-z0-9+/]+[=]{0,3}( [^@]+@[^@]+)?"
+description = "Detects SSH public keys"
+
+examples = [
+    "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3b3C7xAd5D6m6N+H4B+b5+P+Mj5SLGACd0...",
+    "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAuelZMnPIHPca8MlrBb8M...",
+]
+
+false_positives = []

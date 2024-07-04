@@ -1,0 +1,11 @@
+[secret_type]
+name = "pypi_api_token"
+regex = "pypi-AgEIcHlwaS5vcmc[A-Za-z0-9]{50,}"
+description = "Detects PyPI API tokens"
+
+examples = [
+    "pypi-AgEIcHlwaS5vcmcCJDJkODdlYmE4LWE5MjQtNGUxMS1iYWY4LWJmNjg4YTQ2ZmJlZgACOXsicGVybWlzc2lvbnMiOiAidXNlciI",
+    "pypi-AgEIcHlwaS5vcmcCJDJkODdlYmE4LWE5MjQtNGUxMS1iYWY4LWJmNjg4YTQ2ZmJlZgACOXsicGVybWlzc2lvbnMiOiAidXNlciI",
+]
+
+false_positives = []

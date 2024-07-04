@@ -1,0 +1,11 @@
+[secret_type]
+name = "facebook_access_token"
+regex = "EAACEdEose0cBA[0-9A-Za-z]+"
+description = "Detects Facebook Access Tokens"
+
+examples = [
+    "EAACEdEose0cBAKLsJZCZCZCZCZ",
+    "EAACEdEose0cBAPZAnZCqZDZDZDZ",
+    "EAACEdEose0cBAAZBnZCwZCZCZCZ",
+]
+false_positives = []

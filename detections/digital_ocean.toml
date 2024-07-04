@@ -1,0 +1,11 @@
+[secret_type]
+name = "digital_ocean_token"
+regex = "[a-fA-F0-9]{64}"
+description = "Detects Digital Ocean personal access tokens"
+
+examples = [
+    "b7d03a6947b217efb6f3ec3bd3504582b3e57f8e9a2a8aeae0988e1a46df7e2c",
+    "f3bb3b0cd2abc0d4b0b0e8e8c3f044c70c60ded4c8a204a8886fa8b75421255c",
+]
+
+false_positives = []

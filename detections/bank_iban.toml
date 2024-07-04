@@ -1,0 +1,8 @@
+[secret_type]
+name = "bank_iban"
+regex = "[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}"
+description = "Detects International Bank Account Numbers (IBAN)"
+
+examples = ["GB29NWBK60161331926819", "DE91100000000123456789"]
+
+false_positives = ["AB12CD34EF56GH78IJ90KL"]

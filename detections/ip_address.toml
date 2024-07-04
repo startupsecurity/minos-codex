@@ -1,0 +1,8 @@
+[secret_type]
+name = "ip_address"
+regex = "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
+description = "Detects IP addresses"
+
+examples = ["192.168.1.1", "10.0.0.1"]
+
+false_positives = ["9a9.999.999.999"]
