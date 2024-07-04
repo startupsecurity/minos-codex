@@ -68,7 +68,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          target/${{ matrix.target }}/release/minos-codex-${{ matrix.target }}-${{ matrix.os }}.tar.gz
-          target/${{ matrix.target }}/release/minos-codex-${{ matrix.target }}-${{ matrix.os }}.sha256
+          minos-codex-${{ matrix.target }}-${{ matrix.os }}.tar.gz
+          minos-codex-${{ matrix.target }}-${{ matrix.os }}.sha256
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
