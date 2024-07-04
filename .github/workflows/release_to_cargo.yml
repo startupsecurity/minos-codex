@@ -1,0 +1,24 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish_to_cargo:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+
+    - name: Publish to Cargo
+      run: cargo publish --token ${{ secrets.CARGO_REGISTRY_TOKEN }}
+      env:
+        CARGO_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
